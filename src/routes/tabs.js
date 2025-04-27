@@ -1,0 +1,70 @@
+import React from 'react';
+import Inicio from '../pages/Inicio';
+import Disciplina from '../pages/Disciplina';
+import Historico from '../pages/Historico';
+import MaisOpcoes from '../pages/MaisOpcoes';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+import { Pressable } from 'react-native'; 
+
+export default function TabRoutes() {
+  const Tab = createBottomTabNavigator();
+
+  return (
+    <Tab.Navigator
+      initialRouteName="Inicio"
+      screenOptions={({ route }) => ({
+        tabBarStyle: {
+          backgroundColor: "#2aacc0",
+          height: 60,
+        },
+        tabBarActiveTintColor: "#ffffff",
+        tabBarInactiveTintColor: "#eeeeee",
+        tabBarInactiveBackgroundColor: "#2aacc0",
+        headerStyle: {
+          backgroundColor: "#2aacc0",
+        },
+        headerTintColor: "#ffffff",
+        headerTitleAlign: "center",
+
+        tabBarButton: (props) => (
+          <Pressable 
+            {...props} 
+            android_ripple={{ color: "transparent" }} 
+          />
+        ),
+
+        tabBarIcon: ({ focused, color }) => {
+          let iconName;
+
+          if (route.name === "Inicio") {
+            iconName = focused ? "home" : "home-outline";
+          } else if (route.name === "Disciplina") {
+            iconName = focused ? "book" : "book-outline";
+          } else if (route.name === "Histórico") { 
+            iconName = focused ? "clipboard" : "clipboard-outline";
+          } else if (route.name === "Mais Opções") {
+            iconName = focused ? "ellipsis-horizontal" : "ellipsis-horizontal-outline";
+          }
+          
+          return (
+            <Ionicons 
+              name={iconName} 
+              size={25} 
+              color={color} 
+            />
+          );
+        },
+      })}
+    >
+      <Tab.Screen 
+        name="Inicio" 
+        component={Inicio} 
+        options={{ headerShown: false }} 
+      />
+      <Tab.Screen name="Disciplina" component={Disciplina} />
+      <Tab.Screen name="Histórico" component={Historico} />
+      <Tab.Screen name="Mais Opções" component={MaisOpcoes} />
+    </Tab.Navigator>
+  );
+}

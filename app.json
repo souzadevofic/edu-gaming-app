@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "app-edu-gaming",
+    "slug": "app-edu-gaming",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo-edugaming.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/logo-edugaming.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2aacc0"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo-edugaming.png",
+        "backgroundColor": "#2aacc0"
+      }
+    },
+    "web": {
+      "favicon": "./assets/logo-edugaming.png"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
