@@ -13,19 +13,19 @@ export default function HeaderInicio({ nomeUsuario, matricula, nomeCurso }) {
         },
         titleName: {
             color: "#fff",
-            fontSize: 28,
+            fontSize: 26,
             fontWeight: "bold",
             marginBlock: 8,
         },
         textMat: {
             color: "#fff",
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: "300",
             marginBottom: 4,
         },
         textCourse: {
             color: "#fff",
-            fontSize: 20,
+            fontSize: 18,
             fontWeight: "600",
         }
     });
