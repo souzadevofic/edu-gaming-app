@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 export default function Disciplina() {
   return (
     <View>
-      <Text>Disciplina</Text>
+      <Text>Disciplinas</Text>
     </View>
   );
 }
