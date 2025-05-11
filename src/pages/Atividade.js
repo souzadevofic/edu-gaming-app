@@ -1,8 +1,9 @@
 import React from 'react';
-import ContainerAtividade from '../components/ContainerAtividade/ContainerAtividade';
+import ContainerDisciplina from '../components/ContainerDisciplina/ContainerDisciplina';
 
-export default function Atividade() {
+export default function Disciplina() {
+
   return(
-    <ContainerAtividade />
+    <ContainerDisciplina />
   )
 }

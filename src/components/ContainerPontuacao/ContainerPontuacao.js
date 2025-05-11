@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 8,
   },
+
   fontPreta: {
     color: "#000",
     fontSize: 26,
