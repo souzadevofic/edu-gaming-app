@@ -9,14 +9,14 @@ export default function Inicio() {
     <View>
       <View>
         <HeaderInicio   
-          nomeUsuario="Maria Silva" 
+          nomeUsuario="Alisson Souza" 
           matricula="123456789" 
           nomeCurso="Análise e Desenvolvimento de Sistemas" />
       </View>
       <View>
         <ContainerPontuacao
           pontuacao="10"
-          posicao="1"/>
+          posicao="1" />
       </View>
     </View>
   );
