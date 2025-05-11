@@ -11,5 +11,5 @@ export const globalStyles = StyleSheet.create({
     fontFamily: FONTS.regular,
     fontSize: 16,
     color: COLORS.text,
-  },
+  }
 });

@@ -1,11 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-// Os componentes serão importados aqui e retonados dentro do return
+import ContainerDisciplina from '../components/ContainerDisciplina/ContainerDisciplina';
 
 export default function Disciplina() {
-  return (
-    <View>
-      <Text>Disciplina</Text>
-    </View>
-  );
+  return(
+    <ContainerDisciplina />
+  )
 }

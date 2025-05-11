@@ -2,7 +2,7 @@ import React from 'react';
 import Inicio from '../pages/Inicio';
 import Disciplina from '../pages/Disciplina';
 import Historico from '../pages/Historico';
-import MaisOpcoes from '../pages/MaisOpcoes';
+import Perfil from '../pages/Perfil'; 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable } from 'react-native'; 
@@ -43,8 +43,8 @@ export default function TabRoutes() {
             iconName = focused ? "book" : "book-outline";
           } else if (route.name === "Histórico") { 
             iconName = focused ? "clipboard" : "clipboard-outline";
-          } else if (route.name === "Mais Opções") {
-            iconName = focused ? "ellipsis-horizontal" : "ellipsis-horizontal-outline";
+          } else if (route.name === "Perfil") {
+            iconName = focused ? "person" : "person-outline";
           }
           
           return (
@@ -64,7 +64,7 @@ export default function TabRoutes() {
       />
       <Tab.Screen name="Disciplina" component={Disciplina} />
       <Tab.Screen name="Histórico" component={Historico} />
-      <Tab.Screen name="Mais Opções" component={MaisOpcoes} />
+      <Tab.Screen name="Perfil" component={Perfil} />
     </Tab.Navigator>
   );
 }
