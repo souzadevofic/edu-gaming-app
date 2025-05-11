@@ -11,19 +11,19 @@ export default function HeaderInicio({ nomeUsuario, matricula, nomeCurso }) {
             justifyContent: 'flex-end',
             padding: 20,
         },
-        titleName: {
+        titleNome: {
             color: "#fff",
             fontSize: 26,
             fontWeight: "bold",
             marginBlock: 8,
         },
-        textMat: {
+        textMatricula: {
             color: "#fff",
             fontSize: 14,
             fontWeight: "300",
             marginBottom: 4,
         },
-        textCourse: {
+        textCurso: {
             color: "#fff",
             fontSize: 18,
             fontWeight: "600",
@@ -33,9 +33,9 @@ export default function HeaderInicio({ nomeUsuario, matricula, nomeCurso }) {
     return (
         <View style={styles.container_header_inicio}>
             <View>
-                <Text style={styles.titleName}>Olá, {nomeUsuario}</Text>
-                <Text style={styles.textMat}>{matricula}</Text>
-                <Text style={styles.textCourse}>{nomeCurso}</Text>
+                <Text style={styles.titleNome}>Olá, {nomeUsuario}</Text>
+                <Text style={styles.textMatricula}>{matricula}</Text>
+                <Text style={styles.textCurso}>{nomeCurso}</Text>
             </View> 
         </View>
     );
