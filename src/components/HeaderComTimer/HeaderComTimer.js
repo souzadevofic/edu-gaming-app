@@ -2,53 +2,74 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function HeaderComTimer() {
-  const [seconds, setSeconds] = useState(3600); // 1 hora em segundos
-
+  // Estado inicial: 10 minutos em segundos
+  const [segundosRestantes, setSegundosRestantes] = useState(6 * 60);
+  
+  // Efeito para decrementar o temporizador a cada segundo
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds(prev => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          // Aqui você pode adicionar navegação ou alerta
+    // Apenas inicia o temporizador se ainda houver tempo restante
+    if (segundosRestantes <= 0) return;
+    
+    const intervalo = setInterval(() => {
+      setSegundosRestantes(prevSegundos => {
+        if (prevSegundos <= 1) {
+          clearInterval(intervalo);
           return 0;
         }
-        return prev - 1;
+        return prevSegundos - 1;
       });
     }, 1000);
-
-    return () => clearInterval(interval); // Cleanup
-  }, []);
-
-  const formatTime = (secs) => {
-    const minutes = Math.floor(secs / 60);
-    const seconds = secs % 60;
-    return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    
+    // Limpa o intervalo quando o componente é desmontado
+    return () => clearInterval(intervalo);
+  }, [segundosRestantes]);
+  
+  // Função para formatar os segundos em minutos:segundos
+  const formatarTempo = (totalSegundos) => {
+    const minutos = Math.floor(totalSegundos / 60);
+    const segundos = totalSegundos % 60;
+    
+    // Adiciona zero à esquerda se for menor que 10
+    const minutosFormatados = minutos < 10 ? `0${minutos}` : minutos;
+    const segundosFormatados = segundos < 10 ? `0${segundos}` : segundos;
+    
+    return `${minutosFormatados}:${segundosFormatados}`;
   };
-
+  
+  // Verifica se o tempo restante é menor ou igual a 5 minutos (300 segundos)
+  const estiloTemporizador = {
+    ...styles.temporizadorTexto,
+    color: segundosRestantes <= 300 ? '#FF756F' : '#2aacc0'
+  };
+  
   return (
-    <View style={styles.header}>
-      <Text style={styles.title}>Questões</Text>
-      <Text style={styles.timer}>{formatTime(seconds)}</Text>
+    <View style={styles.temporizadorContainer}>
+      <Text style={styles.labelTexto}>TEMPO:</Text>
+      <Text style={estiloTemporizador}>{formatarTempo(segundosRestantes)}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  header: {
-    height: 100,
-    backgroundColor: '#2aacc0',
-    justifyContent: 'center',
+  temporizadorContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 40,
+    justifyContent: 'space-between',
+    paddingHorizontal: 24,
+    paddingBottom: 4,
+    marginVertical: 4,
+    alignSelf: 'flex-end',
+    opacity: 0.7,
   },
-  title: {
-    color: '#ffffff',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  timer: {
-    color: '#ffffff',
+  labelTexto: {
     fontSize: 16,
-    marginTop: 4,
+    fontWeight: 'bold',
+    marginRight: 16,
+    color: '#2aacc0',
+  },
+  temporizadorTexto: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#2aacc0',
   },
 });

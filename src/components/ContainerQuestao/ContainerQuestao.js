@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
+import HeaderComTimer from '../HeaderComTimer/HeaderComTimer';
 
 export default function ContainerQuestao() {
   const route = useRoute();
@@ -9,7 +10,7 @@ export default function ContainerQuestao() {
   const questoes = [
     {
       enunciado: "Qual das tags HTML é usada para criar um parágrafo?",
-      alternativas: ["<div>", "<span>", "<p>", "<h1>", "<article>"],
+      alternativas: ["<p>", "<div>", "<span>", "<h1>", "<body>"],
       respostaCorreta: "<p>",
     },
     {
@@ -37,26 +38,26 @@ export default function ContainerQuestao() {
   const letras = ['A', 'B', 'C', 'D', 'E'];
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.header}>Disciplina: {disciplina}</Text>
-      <Text style={styles.subHeader}>Atividade: {atividade}</Text>
-
-      {questoes.map((questao, index) => (
-        <View key={index} style={styles.questionBox}>
-          <Text style={styles.question}>
-            {index + 1}. {questao.enunciado}
-          </Text>
-
-          {questao.alternativas.map((alt, i) => (
-            <TouchableOpacity key={i} style={styles.option}>
-              <Text style={styles.optionText}>
-                {letras[i]}) {alt}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      ))}
-    </ScrollView>
+    <SafeAreaView style={styles.container}>
+      {/* Área do timer fixo no topo */}
+      <View style={styles.timerContainer}>
+        <HeaderComTimer />
+      </View>
+      
+      {/* Área de questões com rolagem */}
+      <ScrollView style={styles.questionsContainer} contentContainerStyle={styles.questionsContent}>
+        {questoes.map((questao, index) => (
+          <View key={index} style={styles.questionBox}>
+            <Text style={styles.question}>{index + 1}. {questao.enunciado}</Text>
+            {questao.alternativas.map((alt, i) => (
+              <TouchableOpacity key={i} style={styles.option}>
+                <Text style={styles.optionText}>{letras[i]}) {alt}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        ))}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -64,7 +65,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
+  },
+  timerContainer: {
+    backgroundColor: '#fff',
+    padding: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  questionsContainer: {
+    flex: 1,
+  },
+  questionsContent: {
     padding: 20,
+    paddingBottom: 30,
   },
   header: {
     fontSize: 16,
@@ -75,7 +88,7 @@ const styles = StyleSheet.create({
   subHeader: {
     fontSize: 14,
     color: '#555',
-    marginBottom: 20,
+    marginBottom: 5,
   },
   questionBox: {
     backgroundColor: '#f0f8f9',

@@ -35,14 +35,19 @@ export default function Routes() {
             headerTitleAlign: 'center',
             title: 'Minhas Atividades',
             height: 80,
-        }}
-/>
+          }}
+        />
         <Stack.Screen 
         name="Questao" 
         component={Questao}
         options={{ 
-        header: () => <HeaderComTimer />
-      }}
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: '#2aacc0',
+          },
+          headerTintColor: '#ffffff',
+          headerTitleAlign: 'center'
+        }} 
   />
       </Stack.Navigator>
     </NavigationContainer>
