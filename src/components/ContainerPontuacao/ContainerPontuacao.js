@@ -1,3 +1,4 @@
+
 import { View, Text, StyleSheet } from 'react-native';
 import TrophySvg from '../../../assets/img/TrophySVG';
 
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 8,
   },
+
   fontPreta: {
     color: "#000",
     fontSize: 26,
@@ -37,3 +39,4 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
 });
+
