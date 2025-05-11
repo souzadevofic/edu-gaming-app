@@ -11,18 +11,21 @@ export default function HeaderInicio({ nomeUsuario, matricula, nomeCurso }) {
             justifyContent: 'flex-end',
             padding: 20,
         },
+
         titleNome: {
             color: "#fff",
             fontSize: 26,
             fontWeight: "bold",
             marginBlock: 8,
         },
+
         textMatricula: {
             color: "#fff",
             fontSize: 14,
             fontWeight: "300",
             marginBottom: 4,
         },
+
         textCurso: {
             color: "#fff",
             fontSize: 18,
