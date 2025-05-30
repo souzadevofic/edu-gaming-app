@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 import HeaderComTimer from '../HeaderComTimer/HeaderComTimer';
+import BotaoFinalizar from '../BotaoFinalizar/BotaoFinalizar';
 
-export default function ContainerQuestao() {
+export default function ContainerQuestao({navigation}) {
   const route = useRoute();
   const { atividade, disciplina } = route.params;
 
@@ -56,6 +57,7 @@ export default function ContainerQuestao() {
             ))}
           </View>
         ))}
+        <BotaoFinalizar />
       </ScrollView>
     </SafeAreaView>
   );

@@ -3,7 +3,7 @@ import Login from '../pages/Login';
 import TabRoutes from '../routes/tabs'; 
 import Atividade from "../pages/Atividade"; 
 import Questao from "../pages/Questao";
-import HeaderComTimer from '../components/HeaderComTimer/HeaderComTimer';
+import AtividadeFinalizada from '../pages/AtividadeFinalizada';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -47,9 +47,22 @@ export default function Routes() {
           },
           headerTintColor: '#ffffff',
           headerTitleAlign: 'center'
-        }} 
-  />
-      </Stack.Navigator>
+        }}
+      />
+      <Stack.Screen 
+          name="AtividadeFinalizada" 
+          component={AtividadeFinalizada} 
+          options={{ 
+            headerShown: false,
+            headerStyle: {
+            backgroundColor: '#2aacc0',
+          },
+          headerTintColor: '#ffffff',
+          headerTitleAlign: 'center'
+            
+          }} 
+      />
+    </Stack.Navigator>
     </NavigationContainer>
   );
 }
