@@ -19,7 +19,7 @@ export default function ContainerDisciplina() {
       {disciplinas.map((d, i) => (
         <TouchableOpacity
           key={i}
-          style={[styles.button, i === 0 && styles.highlight]}
+          style={[styles.button, i === 0]}
           onPress={() => {
             if (i === 0) {
               navigation.navigate('Atividade', { disciplina: d });
@@ -65,10 +65,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: '80%',
     alignItems: 'center',
-  },
-  highlight: {
-    borderWidth: 2,
-    borderColor: '#000',
   },
   buttonText: {
     color: 'white',
