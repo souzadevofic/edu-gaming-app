@@ -18,7 +18,7 @@ export default function ContainerAtividades() {
       {atividades.map((a, i) => (
         <TouchableOpacity
           key={i}
-          style={[styles.button, i === 0 && styles.active]}
+          style={[styles.button, i === 0 ]}
           onPress={() => {
             if (i === 0) {
               navigation.navigate('Questao', { atividade: a, disciplina });
@@ -64,10 +64,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     width: '85%',
     alignItems: 'center',
-  },
-  active: {
-    borderWidth: 2,
-    borderColor: '#000',
   },
   buttonText: {
     color: 'white',

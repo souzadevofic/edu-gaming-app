@@ -6,9 +6,12 @@ import Perfil from '../pages/Perfil';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable } from 'react-native'; 
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function TabRoutes() {
   const Tab = createBottomTabNavigator();
+
+  const insets = useSafeAreaInsets();
 
   return (
     <Tab.Navigator
@@ -16,7 +19,8 @@ export default function TabRoutes() {
       screenOptions={({ route }) => ({
         tabBarStyle: {
           backgroundColor: "#2aacc0",
-          height: 60,
+          height: 50 + insets.bottom,
+          paddingBottom: insets.bottom,
         },
         tabBarActiveTintColor: "#ffffff",
         tabBarInactiveTintColor: "#eeeeee",
