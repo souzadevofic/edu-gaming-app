@@ -3,11 +3,9 @@ import { View, Text, StyleSheet } from 'react-native';
 
 export default function HeaderComTimer() {
   // Estado inicial: 10 minutos em segundos
-  const [segundosRestantes, setSegundosRestantes] = useState(6 * 60);
+  const [segundosRestantes, setSegundosRestantes] = useState(10 * 60);
   
-  // Efeito para decrementar o temporizador a cada segundo
   useEffect(() => {
-    // Apenas inicia o temporizador se ainda houver tempo restante
     if (segundosRestantes <= 0) return;
     
     const intervalo = setInterval(() => {
